@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { url } from 'inspector';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -8,7 +8,11 @@ import { url } from 'inspector';
 })
 export class HttpServiceService {
 
-  constructor() {HttpClient}
+  constructor(private http: HttpClient) {}
 
-  
+   private apiUrl = 'https://fakerapi.it/api/v2/creditCards?_quantity=10';
+
+   getCreditCards(): Observable<any> {
+    return this.http.get<any>(this.apiUrl);
+  }
 }

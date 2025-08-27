@@ -1,6 +1,10 @@
 <p>list-card works!</p>
-<li>
-    <ul>
-        <p>Test</p>
-    </ul>
-</li>
+<button (click)="GetDataCard()">Посмотреть кредитные карты</button>
+
+<ul>
+  <li *ngFor="let card of creditCards">
+    <strong>Тип:</strong> {{ card.type }}<br>
+    <strong>Номер:</strong> {{ card.number }}<br>
+    <strong>Срок действия:</strong> {{ card.expiration }}
+  </li>
+</ul>
