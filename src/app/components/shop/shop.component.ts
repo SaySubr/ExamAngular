@@ -14,6 +14,7 @@ export class ShopComponent {
     creditCards: any[] = [];
     shopForm: FormGroup;
     purchaseMessage = '';
+    totalCost: number = 0;
 
   products = [
     { id: 1, name: 'Телефон', price: 500 },
@@ -21,7 +22,8 @@ export class ShopComponent {
     { id: 3, name: 'Ноутбук', price: 1200 },
     { id: 4, name: 'Кофе', price: 5 },
     { id: 5, name: 'Овощи', price: 10},
-    { id: 6, name: 'Фрукты', price: 340}
+    { id: 6, name: 'Фрукты', price: 340},
+    { id: 7, name: 'Лезвия', price: 120}
   ];
 
 
@@ -33,21 +35,23 @@ export class ShopComponent {
     });
   }
 
-  ngOnInit() {
-    this.httpService.getCreditCards().subscribe(data => {
-      this.creditCards = data.data;
-    });
-  }
+ ngOnInit() {
+  this.httpService.getCreditCards().subscribe(data => {
+    this.creditCards = data.data;
+  });
+
+ 
+  this.shopForm.valueChanges.subscribe(() => {
+    const product = this.products.find(p => p.id === this.shopForm.value.productId);
+    const qty = this.shopForm.value.quantity || 0;
+    this.totalCost = product ? product.price * qty : 0;
+  });
+}
 
   get selectedCard() {
     return this.creditCards.find(card => card.number === this.shopForm.value.cardNumber);
   }
 
-  get totalCost(): number {
-    const product = this.products.find(p => p.id === this.shopForm.value.productId);
-    const qty = this.shopForm.value.quantity || 0;
-    return product ? product.price * qty : 0;
-  }
 
   buy() {
     if (this.shopForm.invalid) {
