@@ -5,6 +5,7 @@
   <li *ngFor="let card of creditCards">
     <strong>Тип:</strong> {{ card.type }}<br>
     <strong>Номер:</strong> {{ card.number }}<br>
-    <strong>Срок действия:</strong> {{ card.expiration }}
+    <strong>Срок действия:</strong> {{ card.expiration }}<br>
+    <strong>Баланс:</strong> {{ card.balance | currency:'USD' }}
   </li>
 </ul>
