@@ -1,0 +1,29 @@
+<h2>Магазин</h2>
+
+<form [formGroup]="shopForm" (ngSubmit)="buy()">
+
+  <label for="cardNumber">Выберите карту:</label>
+  <select id="cardNumber" formControlName="cardNumber">
+    <option [ngValue]="null" disabled>-- Выберите карту --</option>
+    <option *ngFor="let card of creditCards" [value]="card.number">
+      {{ card.number }} - Баланс: {{ card.balance | currency:'USD' }}
+    </option>
+  </select>
+
+  <label for="product">Выберите продукт:</label>
+  <select id="product" formControlName="productId">
+    <option [ngValue]="null" disabled>-- Выберите продукт --</option>
+    <option *ngFor="let product of products" [value]="product.id">
+      {{ product.name }} - {{ product.price | currency:'USD' }}
+    </option>
+  </select>
+
+  <label for="quantity">Количество:</label>
+  <input type="number" id="quantity" formControlName="quantity" min="1" />
+
+  <p>Итого к оплате: {{ totalCost | currency:'USD' }}</p>
+
+  <button type="submit" [disabled]="shopForm.invalid">Купить</button>
+</form>
+
+<p *ngIf="purchaseMessage">{{ purchaseMessage }}</p>

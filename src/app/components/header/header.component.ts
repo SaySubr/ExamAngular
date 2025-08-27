@@ -20,4 +20,7 @@ export class HeaderComponent {
   goToWelcome(){
     this.router.navigate(['welcome'])
   }
+  goToShop(){
+    this.router.navigate(['shop'])
+  }
 }
