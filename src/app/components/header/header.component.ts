@@ -16,4 +16,8 @@ export class HeaderComponent {
   goToCards() {
     this.router.navigate(['/cards']);
   }
+
+  goToWelcome(){
+    this.router.navigate(['welcome'])
+  }
 }
