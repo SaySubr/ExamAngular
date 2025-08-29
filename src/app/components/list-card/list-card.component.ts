@@ -7,9 +7,9 @@ import { MatButtonModule } from '@angular/material/button';
 
 export interface PeriodicElement {
   type: string;
-  creditcard: number;
-  Validity: number;
-  balance: string;
+  creditcard: string;
+  Validity: string;
+  balance: number;
 }
 
 
@@ -28,10 +28,11 @@ export class ListCardComponent {
  GetDataCard() {
     this.httpService.getCreditCards().subscribe(data => {
       this.creditCards = data.data;  
+      console.log(this.creditCards)
     });
   }
 
-
    displayedColumns: string[] = ['type', 'creditcard', 'Validity', 'balance'];
-  clickedRows = new Set<PeriodicElement>();
+   
+    clickedRows = new Set<PeriodicElement>();
 }
