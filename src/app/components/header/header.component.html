@@ -1,5 +1,8 @@
 <h1>Exam Angular</h1>
-<button (click)="goToWelcome()">Перейти к начальной странице</button>
-<button (click)="goToCards()">Перейти к кредитным картам</button>
-<button (click)="goToShop()">Перейти к cтранице покупок</button>
-<button (click)="goToComplaints()">Книга жалоб</button>
+
+<div class="example-button-row">
+    <button mat-flat-button color="warn" (click)="goToWelcome()">Перейти к начальной странице</button>
+    <button mat-flat-button color="warn" (click)="goToCards()">Перейти к кредитным картам</button>
+    <button mat-flat-button color="warn" (click)="goToShop()">Перейти к cтранице покупок</button>
+    <button mat-flat-button color="warn" (click)="goToComplaints()">Книга жалоб</button>
+</div>

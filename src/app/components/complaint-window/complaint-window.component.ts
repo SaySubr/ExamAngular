@@ -11,14 +11,13 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-complaint-window',
   standalone: true,
-  imports: [  CommonModule, FormsModule,
+  imports: [CommonModule, FormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
     MatDialogTitle,
     MatDialogContent,
-    MatDialogActions,
-    MatDialogClose],
+    MatDialogActions],
   templateUrl: './complaint-window.component.html',
   styleUrl: './complaint-window.component.scss'
 })

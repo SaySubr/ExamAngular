@@ -1,0 +1,42 @@
+.example-button-row {
+  button {
+    // Общие стили кнопок
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    margin: 0 8px 8px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+
+    &:nth-child(1) {
+      background-color: #3498db; // синий
+      &:hover {
+        background-color: #2980b9;
+      }
+    }
+
+    &:nth-child(2) {
+      background-color: #27ae60; // зелёный
+      &:hover {
+        background-color: #1e8449;
+      }
+    }
+
+    &:nth-child(3) {
+      background-color: #e67e22; // оранжевый
+      &:hover {
+        background-color: #ca6f1e;
+      }
+    }
+
+    &:nth-child(4) {
+      background-color: #c0392b; // красный
+      &:hover {
+        background-color: #922b21;
+      }
+    }
+  }
+}
