@@ -23,4 +23,8 @@ export class HeaderComponent {
   goToShop(){
     this.router.navigate(['shop'])
   }
+  goToComplaints() {
+  this.router.navigate(['complaints']);
+}
+
 }

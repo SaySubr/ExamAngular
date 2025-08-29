@@ -1,0 +1,8 @@
+<button mat-raised-button color="primary" (click)="openDialog()">Оставить жалобу</button>
+
+<h3 *ngIf="complaints().length > 0">Оставленные жалобы:</h3>
+<ul>
+  <li *ngFor="let c of complaints()">
+    <strong>{{ c.name }}</strong>: {{ c.problem }}
+  </li>
+</ul>
