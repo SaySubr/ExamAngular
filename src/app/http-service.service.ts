@@ -13,16 +13,20 @@ export class HttpServiceService {
    private apiUrl = 'https://fakerapi.it/api/v2/creditCards?_quantity=10';
 
    getCreditCards(): Observable<any> {
+   
     return this.http.get<any>(this.apiUrl).pipe(
       map(response => {
-       
+       console.log(response)
         response.data = response.data.map((card: any) => ({
           ...card,
           balance: this.getRandomBalance()
+          
         }));
         return response;
+        
       })
     );
+    
   }
 
 

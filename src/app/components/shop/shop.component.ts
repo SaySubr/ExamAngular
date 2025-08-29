@@ -39,6 +39,7 @@ export class ShopComponent implements OnInit {
   ngOnInit() {
     this.httpService.getCreditCards().subscribe(data => {
       this.creditCards = data.data;
+      console.log(data)
     });
 
     this.shopForm.valueChanges.subscribe(() => {
